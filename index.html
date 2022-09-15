@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-1-interview-ans</title>
+</head>
+<body style="background-color: rgb(110, 34, 110); color: white; ">
+    
+    <h3> 1.Difference between “ == “ and “ === “ operators.</h3>
+    <p>
+       
+ans-- <br>
+ == and === known as comparison operators. <br>
+  The difference between == and === is---> <br>
+   "==" only used for checks only values, and <br>
+    "===" is used to checks both value and datatypes. <br>
+
+var a="10"; <br>
+var b=10; <br>
+console.log(a==b);   It will returns true because it only check values not data types <br>
+console.log(a===b);   It returns false because for a and b values are same but a is string type and b is number type, so that datatypes are not same.
+
+    </p><br>
+ 
+    <h3>
+        2. What is the spread operator?
+        </h3>
+    <p> Ans-- <br>
+       (...) Spread operator allows an iterable to expand in places where 0+ arguments are expected. <br>
+         It is mostly used in the variable array where there is more than 1 values are expected. <br>
+          It allows us the privilege to obtain a list of parameters from an array. <br>
+           Syntax of (...) Spread operator is same as Rest parameter but it works completely opposite of it. <br> 
+
+           let arr = ["a","b","c","d"]; <br>
+           let arr2 = [1,2,3]; <br> <br>
+  
+           arr = [...arr,...arr2]; <br>
+           console.log(arr); output-['a', 'b', 'c', 'd', 1, 2, 3]
+    </p>
+
+    <h3>3.What are the differences between var, let and const?</h3>
+    <p>
+        ans-> <br>
+        var is a Global or Functional Scoped.it can be reassigned or redeclared and it can be modified later. <br>
+        in other side let and const are block scoped, let and const both cannot be reassigned or redeclare. <br>
+        but let can be modified later,<br>
+        and const cannot be modified later.
+
+
+    </p>
+
+    <h3>4.What is execution context</h3>
+    <p>
+        Ans-- <br>
+        The browser's JavaScript engine then creates a special environment to handle the transformation <br>
+         and execution of this JavaScript code. This environment is known as the Execution Context. <br>
+         Execution context is defined as the environment in which the JavaScript code is executed. <br>
+          By environment, I mean the value of <span style="background-color: red; ">this</span> , variables, objects, and functions JavaScript code has access to at a particular time. <br>
+          There are two kinds of Execution Context in JavaScript: <br>
+●	Global Execution Context (GEC) <br>
+●	Function Execution Context (FEC)
+
+    </p>
+     <h3>5.What is creation phase and execution phase ?</h3>
+         <p>
+            Compiler runs through the entire code for 2 time before actually executing the code,<br>
+1.	In the first run, It picks all function declarations and stores them in memory with their reference. <br>
+2.	In the second run, It picks all variables and assign undefined to them. In the event of a conflict between variable and function declaration name then that variable is ignored. <br> <br>
+
+Execution Phase <br>
+1.	Variables assigned with values <br>
+2.	Functions executed
+
+
+         </p> 
+
+    <h3>6.What is meant by first class functions</h3>
+    <p>
+        Ans-- <br>
+        A programming language is said to have First-class functions when functions in that language are treated like any other variable. <br>
+         For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable. <br><br>
+         1.Exp- | Assign a function to a variable <br>
+
+const foo = function() { <br>
+   console.log("hi there"); <br>
+} <br>
+foo(); // Invoke it using the variable <br>
+// hi there  
+
+    </p>
+    
+    <h3>7.What are closures? </h3>
+    <p>
+        Ans-- <br>
+        A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). <br>
+         In other words, a closure gives you access to an outer function's scope from an inner function. <br>
+          In JavaScript, closures are created every time a function is created, at function creation time. <br> 
+          
+        </p>
+
+  <h5>Give an example of closure</h5>
+         <p> function OuterFunction() {<br>
+
+            var outerVariable = 100; <br>
+          
+            function InnerFunction() { <br>
+                console.log(outerVariable); <br>
+            } <br>
+          
+            return InnerFunction; <br>
+          } <br>
+           var innerFunc=OuterFunction(); <br>
+           innerFunc();</p>
+    
+           <h3>1.Explain call(), apply() and, bind() methods. Give an example of call(), apply(), bind()</h3>
+           <pre>call() - It invokes the function and allows you to pass in arguments one by one.
+               ex - const person = {
+                   firstName:"John",
+                   lastName: "Doe",
+                   fullName: function () {
+                     return this.firstName + " " + this.lastName;
+                   }
+                 }
+                 
+                 person.fullName();  
+                 
+               apply() - It invokes the function and allows you to pass in arguments as an array.
+               ex - const person = {
+                   fullName: function() {
+                     return this.firstName + " " + this.lastName;
+                   }
+                 }
+                 
+                 const person1 = {
+                   firstName: "Mary",
+                   lastName: "Doe"
+                 }
+                 person.fullName.apply(person1);
+               
+               
+               
+               bind() - I t returns a new function, allowing you to pass in a this array and any number of arguments.
+               ex - const person = {
+                   firstName:"John",
+                   lastName: "Doe",
+                   fullName: function () {
+                     return this.firstName + " " + this.lastName;
+                   }
+                 }
+                 const member = {
+                   firstName:"Hege",
+                   lastName: "Nilsen",
+                 }
+                 let fullName = person.fullName.bind(member);</pre>
+           
+           
+             <h3>2.What are objects in javascript?</h3>
+           <p>Object is a non-primitive data-type that allows us to store multiple collections of data in the form of keyvalue pairs.
+           </p>
+           
+           <h3>3.What are function constructors?</h3>
+           <pre>
+               A constructor is a special function that creates and initializes an object instance of a class. 
+           It is a constructor gets called when an object is created using the new keyword. 
+           The purpose of a constructor is to create a new object and set values for any existing object
+            properties.
+           ex - const sum = new Function('a', 'b', 'return a + b');
+           console.log(sum(2, 6));
+           </pre>
+           
+           <h3>4.Explain prototypes</h3>
+           <pre>
+               The prototype is an object that is associated with every functions and objects by default.
+           ex - const parentObject={
+           
+           name:"Rakesh",
+           age:23,
+           
+           
+           }
+           var childObect=Object.create(parentObject)
+           console.log(parentObject.name);
+           console.log(childObect.name);
+           
+           </pre>
+           
+           <h3>5.What is prototype chain</h3>
+           <p>
+               In prototype chain each object has a private property which holds a link to another object called its prototype. <br>
+           That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. <br>
+           </p>
+           
+           <h3>6.Give an example of inheritance using function constructor</h3>
+           <p>
+               Inheritance is a useful feature that allows code reusability. In the above example, <br>
+           the Student class inherits all the methods and properties of the Person class. <br>
+           Hence, the Student class will now have the name property and the greet() method. <br>
+           </p>
+           
+           <h3>7.What are callbacks?</h3>
+           <pre>
+               A callback function is a function passed as an argument to another function.
+           ex- function greeting(name) {
+             alert('Hello ' + name);
+           }
+           
+           function processUserInput(callback) {
+             var name = prompt('Please enter your name.');
+             callback(name);
+           }
+           
+           processUserInput(greeting);
+           </pre>
+           
+           <h3>8.What is the use of setTimeout</h3>
+           <p>
+               It sets a timer which executes a function or specified piece of code once the timer expires. <br>
+           Syntax: setTimeout(function, time);
+           
+           </p>
+           <h3>9.What is an event loop and call stack</h3>
+           <p>
+               Event loop - It is responsible for exceuting the code, collecting and processing events, and <br>
+           exceuting queued sub - tasks. <br>
+           Call stack - It is a mechanism for interpreter to keep track of multiple function call. 
+           </p>
+           <h3>1.What are promises and why do we need them?</h3>
+
+           <pre>
+           1] Promises are used to handle asynchronous operations in JavaScript.
+           2] They are easy to manage when dealing with multiple asynchronous operations where callbacks can create callback hell leading to unmanageable code. 
+           
+           ------------------Benefits of Promises: --------------------------------------------
+           
+           1.Improves Code Readability
+           2.Better handling of asynchronous operations
+           3.Better flow of control definition in asynchronous logic
+           4.Better Error Handling
+           
+           -A Promise has four states: ------------------->
+           1.fulfilled: Action related to the promise succeeded
+           2.rejected: Action related to the promise failed
+           3.pending: Promise is still pending i.e. not fulfilled or rejected yet
+           
+           -A promise can be created using Promise constructor.
+           
+           
+           Syntax ************
+           
+           var promise = new Promise(function(resolve, reject){
+                //do something
+           });
+           eg:
+           const promise = new Promise(
+             (resolve) => {
+               setTimeout(() => {
+                 resolve("I'm a Promise!");
+               }, 5000);
+             },
+             (reject) => {}
+           );
+           promise.then((value) => console.log(value));
+           
+           
+           ================================================================================================
+           
+           </pre>
+           
+           
+           <h3>2. What is the purpose of async/await keywords?</h3>
+           
+           
+           <pre>
+               1] It simply allows us to write promises based code as if it was synchronous and it checks 
+           that we are not breaking the execution thread.
+           2] It operates asynchronously via the event-loop. Async functions will always return a value.
+           
+           eg: 
+           const getData = async() => {
+               var data = "Hello World";
+               return data;
+           }
+           getData().then(data => console.log(data));//Hello World
+           
+           
+           #Await: Await function is used to wait for the promise. It could be used within the async block only.
+           - It makes the code wait until the promise returns a result. It only makes the async block wait.
+           eg
+           const getData = async() => {
+               var y = await "Hello World";
+               console.log(y);//1
+           }
+           console.log(1);//2
+           getData();
+           console.log(2);//Hello World
+           
+           =============================================================================================
+           </pre>
+           
+           
+           <h3>3. What is hosting?</h3>
+           
+           <pre>
+               1] hoisting allows us  to use functions and variables before they're declared.
+           2] Hoisting is the default behavior of moving all the declarations at the top of the scope
+              before code execution.
+           3] It allows us to call functions before even writing them in our code. 
+           4] JavaScript only hoists declarations, not the initializations.
+           
+           eg:
+           function cHoist(){
+               a = 10;
+               let b = 50;
+           }
+           Hoist();
+           console.log(a); // 10
+           console.log(b); // ReferenceError : b is not defined
+           
+           ====================================================================================================
+           
+           </pre>
+           
+           
+           <h3>4. What is the DOM?</h3>
+           
+           <pre>
+               1] The document object represents the whole html document.
+           2] When html document is loaded in the browser, it becomes a document object.
+           3] It is the root element that represents the html document.
+            It has properties and methods. 
+           4] By the help of document object, we can add dynamic content to our web page.
+           
+           ===================================================================================================
+           </pre>
+           que5
+           
+           <h3>5. Difference between undefined vs not defined vs NaN?</h3>
+           
+           <pre>
+               
+           
+           1] The undefined property indicates that the variable has not been assigned a value or not declared at all. 
+           2] The NaN property represents a “Not-a-Number” value. The NaN property indicates that a value is not a legitimate number. 
+           3] not defined: In JavaScript, it is one of the reference errors that JavaScript will throw when someone accesses the variable which is not inside the memory heap.
+           
+           ==================================================================================================================
+           
+           </pre>
+           
+           <h3>6.How many operators do we have in JS ?</h3>
+           
+           <pre>
+               -An operator is used for manipulating a certain value or operand. 
+           -Operators are used to perform specific mathematical and logical computations on operands.
+           1.Arithmetic Operators
+           2.Comparison Operators
+           3.Bitwise Operators
+           4.Logical Operators
+           5.Assignment Operators
+           Q.23. What are pure functions?
+           -A Pure Function is a function (a block of code) that always returns the same result if the same arguments are passed.
+           -It does not depend on any state or data change during a program’s execution.it only depends on its input arguments.
+           eg:
+           function calculate( Price ) {
+               return Price * 0.05;
+           }
+           
+           =====================================================================================================================
+           </pre>
+           
+           
+           <h3>7. What is callback hell?</h3>
+           
+           <pre>
+               1] Callback Hell is essentially nested callbacks stacked below one another forming a pyramid structure.
+           2] Every callback depends/waits for the previous callback, thereby making a pyramid structure that affects the readability and maintainability of the code
+           
+           =================================================================================================================================
+           </pre>
+           
+           <h3>8.What is promise chaining?</h3>
+           
+           <pre>
+               1] Promise chaining allows us to control the flow of JavaScript asynchronous operations.
+               2] By using Promise chaining, we can use the returned value of a Promise as the input to another asynchronous operation.
+           
+            
+           ============================================================================================================= </pre>
+           
+           <h3>9.What are arrow functions?</h3>
+           <pre>
+               -Arrow functions are anonymous functions (the functions without a name and not bound with an identifier).
+            -They don't return any value and can declare without the function keyword. 
+            -Arrow functions cannot be used as the constructors. 
+            -The context within the arrow functions is lexically or statically defined. They are also called as Lambda Functions
+            syntax:
+            const functionName = (arg1, arg2, ?..) => {  
+               //body of the function  
+           } 
+           
+           ==================================================================================================================================
+           </pre>
+           
+           <h3>10.Give an example of async/await?</h3>
+           <pre>
+               -async: 
+           const getData = async() => {
+               var data = "Hello Eberyone";
+               return data;
+           }
+           getData().then(data => console.log(data));//Hello Everyone
+           -await:
+           
+           for eg------------->
+           const getData = async() => {
+               var y = await "Hello Everyone";
+               console.log(y);//1
+           }
+           console.log(1);//2
+           getData();
+           console.log(2);//Hello World
+           </pre>
+           <h3>1.What is a Temporal Dead Zone?</h3>
+<pre>
+    TDZ is the block of code where a variable remians inaccessible until the computer completely initializes it with a value.
+    let and const doesnt get hoisted.if we try to access them before initialization ,we get reference error.this is known as TDZ.
+
+</pre>
+
+<h3>2.What is the for-in loop in JavaScript? Give its syntax.</h3>
+
+<pre>
+    for-in loop iterates through the indexes of the array or the properties of an object.
+example 1-
+    let arr=[1,2,3,4,5];
+    for(let i in arr){
+        console.log(i);
+    }
+example2-
+    obj={
+        "name":"Rakesh",
+        "roll":12,
+        "class":"elevation academy"
+    }
+    for(let key in obj){
+        console.log(key);
+    }
+</pre>
+
+<h3>3.Explain Local Scope, Block Scope, Functional Scope and Scope Chain in javascript.</h3>
+
+<pre>
+    local scope-it means that a variable is accessed only inside a function.it has local scope.
+example-
+    var greet="Good";
+    function time(){
+        var time1="morning";
+        console.log(greet+" "+time1);//good morning
+    }
+    time();
+     console.log(greet+" "+time1);//reference error:time1 is not defined
+
+block scope-it means that a variable is accessed only inside a specific block where it is declared.
+only let and const is block scoped.
+example-
+    var greet="hello";
+    function print(){
+        var greet1="there";
+        console.log(greet+" "+greet1);//hello there
+        if(greet1==="there"){
+            let greet2="again";
+            console.log(greet+" "+greet1+" "+greet2);//hello there again
+        }
+        console.log(greet+" "+greet1+" "+greet2);//reference error
+    }
+    print();
+
+functional scope-local variables that are declared inside a function is accessible from anywhere insde a function only.this is known as functional scope.
+
+scope chain-when our code try to access a variable during function call,it first search the local variables.if the variable not found,then it seaches the parent function scope until it reaches the global scope.this chain is known as scope chain.
+
+</pre>
+
+
+<h3>4.What is difference between null and undefined and where to use what?</h3>
+
+<pre>
+    undefined-when a variable is declared but not initialized.if we try to access this,we get undefined.
+type of undefined is undefined itself.
+null-it is a assignment value to the variable which represents the intentional absence of a value.
+example-
+    var test;
+    console.log(test);//undefined
+    console.log(typeof(test));//undefined
+
+    var test1=null;
+    console.log(test1);//null
+    console.log(typeof(test1));//object
+</pre>
+
+<h3>5.what is Symbol?</h3>
+
+<pre>
+    symbol is a primitive datatype newly introduced in ES6.it is used to give a unique value which is immutable means which can not be changed.
+every symbol value is unique.
+example-
+    let sym1=Symbol("Rakesh");
+    let sym2=Symbol("Rakesh");
+    console.log(sym1==sym2);//false
+</pre>
+
+<h3>6.Write code to explain map and filter in arrays.</h3>
+
+<pre>
+    Both map and filter are specifically designed for arrays.
+both take callback function as an argument.
+map-we use map method when we want to perform some operation on each and every item of the array.it returns a new array.
+example-
+    let arr1=[1,2,3,4,5];
+    let result=arr1.map(function(val){
+         return val*5;
+    })
+    console.log(result);
+
+filter-filter method filters the array based on the condition that we apply.
+example-
+    let arr2=[12,5,78,46,13,0,67];
+    let res=arr2.filter(function(val){
+        return val>20;
+    })
+    console.log(res);
+</pre>
+
+<h3>7.Explain passed by value and passed by reference.</h3>
+
+<pre>
+    pass by value means that we pass the actual value of the variable into the function.
+pass by reference means that instead of passing the value of the variable,we pass the address of variable(location) to the function.
+example-
+    var a=2;
+    var b=a;
+    console.log(a);//2
+    console.log(b);//2
+    a=4;
+    console.log(a);//4
+    console.log(b);//2
+</pre>
+
+<h3>8.Please explain Self Invoking Function and its code.</h3>
+<pre>
+    self invoking functions are kind of an anonymous function which gets invoked automatically after its declaration.we dont have to manually invoke it.
+example-
+    (function(){
+        let x="hello there!";
+        console.log(x);
+    })();
+</pre>
+
+<h3>9. What is an event loop and call stack</h3>
+    <pre>
+        event loop: which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks.   
+        call stack: A call stack is a mechanism for an interpreter (like the JavaScript interpreter in a web browser) to keep track of its place in a script that calls multiple functions
+    </pre>           
+</body>
+</html>
+
+</body>
+</html>
